@@ -93,10 +93,24 @@ var draw = (function () {
                 this.drawCircle();
             } else if (shape === 'path') {
                 this.drawPath();
+            } else if (shape === 'triangle') {
+                this.drawTriangle();
             } else {
                 alert('Please choose a shape');
             }
             ctx.save();
+        },
+
+        //Draw a triangle
+        drawTriangle: function () {
+            ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            ctx.beginPath();
+            ctx.moveTo(lx, ly);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.lineTo(lx, ly);
+            ctx.fill();
+
         },
 
         //draw a path
@@ -171,7 +185,10 @@ draw.getCanvas().addEventListener('mousemove', function (evt) {
     draw.setXY(evt);
     draw.writeXY();
     if (draw.getShape() == 'path' && draw.getIsDrawing() === true) {
-        draw.draw();
+        draw.draw();    
+    }
+    if (draw.getShape() == 'triangle' && draw.getIsDrawing() === true) {
+        draw.draw();    
     }
 }, false);
 
@@ -213,6 +230,11 @@ document.getElementById('btnCircle').addEventListener('click', function () {
 //draw a path
 document.getElementById('btnPath').addEventListener('click', function () {
     draw.setShape('path');
+}, false);
+
+//draw a triangle
+document.getElementById('btnTriangle').addEventListener('click', function () {
+    draw.setShape('triangle');
 }, false);
 
 
