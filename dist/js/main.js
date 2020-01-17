@@ -104,6 +104,7 @@ var draw = (function () {
         //Draw a triangle
         drawTriangle: function () {
             ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
             ctx.beginPath();
             ctx.moveTo(lx, ly);
             ctx.moveTo(x1, y1);
