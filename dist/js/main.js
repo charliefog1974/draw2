@@ -151,8 +151,6 @@ var draw = (function () {
             ctx.stroke();
         },
 
-        //adding a comment to try to push to master
-
         drawRect: function (x, y, h, w) {
 
             //Start by using random fill colors.
